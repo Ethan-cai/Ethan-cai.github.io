@@ -210,8 +210,8 @@
 </ul>
 </li>
 <li>命名（阿里巴巴Java开发手册1.4.0）<ul>
-<li><img src="枚举.assets/阿里巴巴开发手册-枚举.png" alt="阿里巴巴开发手册-枚举"></li>
-<li><img src="枚举.assets/阿里巴巴开发手册-枚举2.png" alt="阿里巴巴开发手册-枚举2"></li>
+<li><img src="/images/枚举.assets/阿里巴巴开发手册-枚举.png" alt="阿里巴巴开发手册-枚举"></li>
+<li><img src="/images/枚举.assets/阿里巴巴开发手册-枚举2.png" alt="阿里巴巴开发手册-枚举2"></li>
 </ul>
 </li>
 </ol>
@@ -226,9 +226,9 @@
 <h3 id="⭐反编译"><a href="#⭐反编译" class="headerlink" title="⭐反编译"></a>⭐反编译</h3><p> 🥝<span id="mime">命令反编译</span></p>
 <ul>
 <li>使用<code>javap -c SeasonEnum.class</code>命令反编译上述<code>SeasonEnum</code>枚举的字节码文件<ul>
-<li><img src="枚举.assets/反编译1.png" alt="反编译1"></li>
-<li><img src="枚举.assets/反编译2.png" alt="反编译2"></li>
-<li><img src="枚举.assets/反编译3.png" alt="反编译3"></li>
+<li><img src="/images/枚举.assets/反编译1.png" alt="反编译1"></li>
+<li><img src="/images/枚举.assets/反编译2.png" alt="反编译2"></li>
+<li><img src="/images/枚举.assets/反编译3.png" alt="反编译3"></li>
 </ul>
 </li>
 </ul>
@@ -254,7 +254,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Enum</span>&lt;E <span class="keyword">extends</span> <span class="title class_">Enum</span>&lt;E&gt;&gt; <span class="keyword">implements</span> <span class="title class_">Comparable</span>&lt;E&gt;, Serializable &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> String <span class="title function_">name</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> ordinal;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">ordinal</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> ordinal;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="title function_">Enum</span><span class="params">(String name, <span class="type">int</span> ordinal)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.ordinal = ordinal;</span><br><span class="line">    &#125;</span><br><span class="line">    ...  <span class="comment">// omit some content</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>从源码中可知 Enum的构造函数为 <strong>protected</strong> 级别，再从<a href="#mime">反编译</a>的照片观察到 SeasonEnum内部声明的四个实例，发现并未显式调用Enum父类的构造函数，甚至连SeasonEnum自身的构造函数也没有显式调用。由此可知，枚举类内部定义的多个实例，其构造过程是由编译器调用构造函数来处理完成的。从Enum构造函数的注释，也可以佐证这一点</p>
-<p><img src="枚举.assets/enum构造方法的注释说明.png" alt="enum构造方法的注释说明"></p>
+<p><img src="/images/枚举.assets/enum构造方法的注释说明.png" alt="enum构造方法的注释说明"></p>
 </blockquote>
 </li>
 </ul>
@@ -263,7 +263,7 @@
 <ul>
 <li><p>java.lang.Enum中的方法</p>
 <ul>
-<li><img src="枚举.assets/Enum中的方法.png" alt="Enum中的方法"></li>
+<li><img src="/images/枚举.assets/Enum中的方法.png" alt="Enum中的方法"></li>
 </ul>
 </li>
 <li><p>SeasonEnum中的方法</p>
@@ -332,15 +332,15 @@
 <li><p>而父类 Enum中定义的 valueOf 函数，其实调用的是 Class 类中定义的 enumConstantDirectory 函数，在该函数内对参数 enumType 是否为枚举类型进行判断</p>
 <ul>
 <li>当传入null时，抛出<code>NullPointerException</code>异常<ul>
-<li><img src="枚举.assets/NullPointerException异常.png" alt="NullPointerException异常"></li>
+<li><img src="/images/枚举.assets/NullPointerException异常.png" alt="NullPointerException异常"></li>
 </ul>
 </li>
 <li>当传入不存在的枚举值时，抛出<span id="IllegalArgumentException">IllegalArgumentException</span>异常<ul>
-<li><img src="枚举.assets/IllegalArgumentException异常.png" alt="IllegalArgumentException异常"></li>
+<li><img src="/images/枚举.assets/IllegalArgumentException异常.png" alt="IllegalArgumentException异常"></li>
 </ul>
 </li>
 <li>当传入存在的枚举值时，返回枚举实例名称和枚举实例构成的 map 对象<ul>
-<li><img src="枚举.assets/valueof传入正常枚举值.png" alt="valueof传入正常枚举值"></li>
+<li><img src="/images/枚举.assets/valueof传入正常枚举值.png" alt="valueof传入正常枚举值"></li>
 </ul>
 </li>
 </ul>
@@ -380,7 +380,7 @@
 <p><br/></p>
 <h3 id="⭐注意事项"><a href="#⭐注意事项" class="headerlink" title="⭐注意事项"></a>⭐注意事项</h3><p> 🥝阿里巴巴开发手册关于枚举建议（1.4.0）</p>
 <ul>
-<li><img src="枚举.assets/阿里巴巴开发手册-枚举3.png" alt="阿里巴巴开发手册-枚举3"></li>
+<li><img src="/images/枚举.assets/阿里巴巴开发手册-枚举3.png" alt="阿里巴巴开发手册-枚举3"></li>
 </ul>
 <p><br/></p>
 <p> 🥝二方库释义</p>
