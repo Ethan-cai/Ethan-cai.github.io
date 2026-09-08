@@ -157,6 +157,17 @@
     
     
     <entry>
+      <title>颜色不一样的烟火</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<p style="font-size: 25px;">关于我</p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>英文名:</td><td>Ethan</td></tr><tr><td>职业:</td><td>???-？？</td></tr><tr><td>爱好:</td><td>跑步、音乐、游戏</td></tr></tbody></table>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>天造之材 皆有其用</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
@@ -173,17 +184,6 @@
       <url>/link/index.html</url>
       
         <content type="html"><![CDATA[<img src="https://ethan-cai.github.io/imagehost/link/1.gif" alt="欢迎做客~" style="zoom:150%;" /><div style="font-size: 20px;" class="youlian">👉友链格式</div><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>名称：</td><td>baicai Blog</td></tr><tr><td>网址：</td><td><a href="https://ethan-cai.github.io/">https://ethan-cai.github.io/</a></td></tr><tr><td>图标：</td><td><a href="https://ethan-cai.github.io/img/avatar.gif">https://ethan-cai.github.io/img/avatar.gif</a></td></tr><tr><td>描述：</td><td>一个记录技术、阅读、生活的博客</td></tr></tbody></table><div style="font-size: 20px;">👉友链申请要求</div>> 秉承互换友链原则、文章定期更新<!-- 、网站在工信部备案 -->、不能有太多广告、个人描述字数控制在15字内]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>颜色不一样的烟火</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<p style="font-size: 25px;">关于我</p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>英文名:</td><td>Ethan</td></tr><tr><td>职业:</td><td>???-？？</td></tr><tr><td>爱好:</td><td>跑步、音乐、游戏</td></tr></tbody></table>]]></content>
       
     </entry>
     
