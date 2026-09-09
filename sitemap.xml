@@ -2,43 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/link/index.html</loc>
+    <loc>https://ethan-cai.github.io/link/index.html</loc>
     
-    <lastmod>2026-09-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/index.html</loc>
-    
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/about/index.html</loc>
+    <loc>https://ethan-cai.github.io/tags/index.html</loc>
     
-    <lastmod>2026-09-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/categories/index.html</loc>
-    
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/undefined/b0b06c03.html</loc>
+    <loc>https://ethan-cai.github.io/about/index.html</loc>
+    
+    <lastmod>2026-09-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ethan-cai.github.io/categories/index.html</loc>
+    
+    <lastmod>2026-09-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ethan-cai.github.io/syesss/b0b06c03.html</loc>
+    
+    <lastmod>2025-12-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://ethan-cai.github.io/%E6%8A%80%E6%9C%AF/b0b06c03.html</loc>
     
     <lastmod>2022-12-06</lastmod>
     
@@ -47,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/undefined/b0b06c03.html</loc>
+    <loc>https://ethan-cai.github.io/%E6%8A%80%E6%9C%AF/b0b06c03.html</loc>
     
     <lastmod>2022-12-06</lastmod>
     
@@ -56,7 +65,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/undefined/b0b06c03.html</loc>
+    <loc>https://ethan-cai.github.io/%E6%8A%80%E6%9C%AF/b0b06c03.html</loc>
     
     <lastmod>2022-12-06</lastmod>
     
@@ -65,7 +74,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/undefined/b0b06c03.html</loc>
+    <loc>https://ethan-cai.github.io/%E6%8A%80%E6%9C%AF/b0b06c03.html</loc>
     
     <lastmod>2022-12-06</lastmod>
     
@@ -74,7 +83,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/undefined/b0b06c03.html</loc>
+    <loc>https://ethan-cai.github.io/%E6%8A%80%E6%9C%AF/b0b06c03.html</loc>
     
     <lastmod>2022-12-06</lastmod>
     
@@ -83,7 +92,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/undefined/b0b06c03.html</loc>
+    <loc>https://ethan-cai.github.io/%E6%8A%80%E6%9C%AF/b0b06c03.html</loc>
     
     <lastmod>2022-12-06</lastmod>
     
@@ -93,16 +102,16 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://ethan-cai.github.io/</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://example.com/tags/Java%E6%8A%80%E6%9C%AF%E7%82%B9/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://ethan-cai.github.io/tags/Java%E6%8A%80%E6%9C%AF%E7%82%B9/</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -110,8 +119,15 @@
 
   
   <url>
-    <loc>http://example.com/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://ethan-cai.github.io/categories/syesss/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://ethan-cai.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
