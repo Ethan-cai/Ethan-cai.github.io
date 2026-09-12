@@ -1,0 +1,121 @@
+/* Local Butterfly overrides. Keep this file self-contained: no remote assets. */
+
+/* The old blog used ZhuZiAWan for navigation and display titles. The font is
+   stored with the site so rendering never depends on the original CDN. */
+@font-face {
+  font-family: 'ZhuZiAYuanJWD';
+  src: url('/fonts/ZhuZiAWan.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400 700;
+}
+
+#menus .site-page,
+#sidebar-menus .site-page,
+#site-title,
+#site-subtitle,
+.article-title,
+.article-sort-item-title,
+.post-title,
+h1.post-title {
+  font-family: 'ZhuZiAYuanJWD', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+}
+
+#menus .site-page,
+#sidebar-menus .site-page,
+#site-title,
+.article-title,
+.post-title,
+h1.post-title {
+  font-weight: 600;
+}
+
+/* Let the site background remain visible through the main cards. */
+#recent-posts > .recent-post-item,
+#aside-content .card-widget,
+div#post,
+div#page,
+div#archive,
+div#tag,
+div#category {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Dark-mode card colours. */
+[data-theme='dark'] #recent-posts > .recent-post-item,
+[data-theme='dark'] #aside-content .card-widget,
+[data-theme='dark'] div#post,
+[data-theme='dark'] div#page,
+[data-theme='dark'] div#archive,
+[data-theme='dark'] div#tag,
+[data-theme='dark'] div#category {
+  background: #121212;
+}
+
+#rightside > div > button,
+#article-container figure.highlight {
+  border-radius: 10px;
+}
+
+/* Local cursor assets committed under source/img. */
+body {
+  cursor: url('/img/x1.cur'), auto;
+}
+
+a,
+[type='button']:not(:disabled),
+[type='reset']:not(:disabled),
+[type='submit']:not(:disabled),
+button:not(:disabled) {
+  cursor: url('/img/x2.cur'), pointer !important;
+}
+
+/* Scrollbar and text-selection colours. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3b70fc;
+  border-radius: 2em;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::selection {
+  color: #fff;
+  background-color: #3b70fc;
+}
+
+/* Author card gradient retained from the old blog without external assets. */
+#aside-content > .card-widget.card-info {
+  position: relative;
+  background: linear-gradient(-45deg, #e8d8b9, #eccec5, #a3e9eb, #bdbdf0, #eec1ea);
+  background-size: 400% 400%;
+  box-shadow: 0 0 5px rgb(66, 68, 68);
+  animation: author-card-gradient 10s ease infinite;
+}
+
+@keyframes author-card-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+[data-theme='dark'] #aside-content > .card-widget.card-info {
+  background: rgba(25, 25, 25, 0.93);
+}
+
+#aside-content > .card-widget.card-info > #card-info-btn {
+  background-color: #3eb8be;
+  border-radius: 8px;
+}
