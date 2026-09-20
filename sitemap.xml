@@ -4,7 +4,7 @@
   <url>
     <loc>https://io.008300.xyz/link/index.html</loc>
     
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-20</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,16 +13,7 @@
   <url>
     <loc>https://io.008300.xyz/tags/index.html</loc>
     
-    <lastmod>2026-09-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://io.008300.xyz/about/index.html</loc>
-    
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-20</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -31,7 +22,25 @@
   <url>
     <loc>https://io.008300.xyz/categories/index.html</loc>
     
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://io.008300.xyz/about/index.html</loc>
+    
+    <lastmod>2026-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://io.008300.xyz/posts/1c55bf21.html</loc>
+    
+    <lastmod>2026-09-20</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -103,15 +112,36 @@
 
   <url>
     <loc>https://io.008300.xyz/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>https://io.008300.xyz/tags/%E6%9E%B6%E6%9E%84%E9%87%8D%E6%9E%84/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://io.008300.xyz/tags/Docker/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://io.008300.xyz/tags/%E5%A4%9AAgent/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://io.008300.xyz/tags/Java%E6%8A%80%E6%9C%AF%E7%82%B9/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -119,15 +149,22 @@
 
   
   <url>
+    <loc>https://io.008300.xyz/categories/init/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://io.008300.xyz/categories/syesss/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://io.008300.xyz/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
