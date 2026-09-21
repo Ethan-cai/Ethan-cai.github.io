@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>极简Docker容器编排中枢：Dockge部署与实操全流程记录</title>
+      <link href="/posts/cfb93bc3.html"/>
+      <url>/posts/cfb93bc3.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><strong>定位</strong>：从零在新 Linux 服务器上标准化交付 Dockge 容器编排中枢的完整操作记录与避坑手册，方便后续换机器或新节点复用。<br><strong>核心原则</strong>：<font color="#ef7050">「拒绝黑盒与全家桶，以原生 compose.yaml 为唯一真理；先筑牢 Docker 底座，再构建极简编排中枢。」</font></p></blockquote><br/><h3 id="⭐一、前置检查：筑牢-Docker-与-Compose-底座"><a href="#⭐一、前置检查：筑牢-Docker-与-Compose-底座" class="headerlink" title="⭐一、前置检查：筑牢 Docker 与 Compose 底座"></a>⭐一、前置检查：筑牢 Docker 与 Compose 底座</h3><p> 🥝1. 经典报错与根因排查</p><p>在新开的 Linux 服务器（Debian &#x2F; Ubuntu）上，直接执行 <code>docker compose up -d</code> 往往会遇到经典报错：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-bash: docker: <span class="built_in">command</span> not found</span><br></pre></td></tr></table></figure><ul><li><strong>报错根因</strong>：云厂商提供的纯净 Linux 操作系统默认不包含 Docker 引擎与 Compose 插件。</li><li><strong>解决原则</strong>：切勿通过非官方第三方源或杂乱的包管理器散装安装，必须使用 Docker 官方标准脚本一次性筑牢底层容器底座。</li></ul><br/><p> 🥝2. 官方标准一键安装命令</p><p>在宿主机终端直接执行 Docker 官方安装向导脚本：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash</span><br></pre></td></tr></table></figure><ul><li><strong>该脚本自动完成</strong>：<ol><li>智能识别当前 Linux 发行版与内核版本；</li><li>自动配置官方 GPG 密钥与安全镜像源；</li><li>一键安装最新稳定的 <code>docker-ce</code> 引擎及 <code>docker-compose-plugin</code>。</li></ol></li><li><strong>安装就绪验证</strong>：</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker --version</span><br><span class="line">docker compose version</span><br></pre></td></tr></table></figure><p>当终端输出明确的版本号（如 <code>Docker version 29.x</code> 与 <code>Docker Compose version v5.x</code>），说明底层底座已经完全坚固。</p><br/><hr><h3 id="⭐二、标准目录规范：计算与配置物理分离"><a href="#⭐二、标准目录规范：计算与配置物理分离" class="headerlink" title="⭐二、标准目录规范：计算与配置物理分离"></a>⭐二、标准目录规范：计算与配置物理分离</h3><p> 🥝1. 为什么要提前规范目录结构？</p><p>Dockge 的设计哲学是**“极简且零黑盒”**，它不会像宝塔一样把用户的配置锁进私有数据库进行绑架。它只认真实磁盘上的 <code>compose.yaml</code> 文件。为了后续维护与迁移清晰，必须遵循两大标准路径：</p><ul><li><strong><code>/opt/dockge</code></strong>：存放 Dockge 自身的核心配置与数据（中枢控制室）。</li><li><strong><code>/opt/stacks</code></strong>：存放所有业务微服务容器堆栈（如 NPM、Hermes、CLIProxyAPI、Bark 等业务车间）。</li></ul><br/><p> 🥝2. 宿主机创建目录与拉取配置</p><p>在宿主机终端中依次执行以下 3 步标准化命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 创建 Dockge 和未来业务容器的标准存储目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /opt/stacks /opt/dockge</span><br><span class="line"><span class="built_in">cd</span> /opt/dockge</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 从官方 GitHub 拉取标准 compose.yaml 蓝图</span></span><br><span class="line">curl https://raw.githubusercontent.com/louislam/dockge/master/compose.yaml --output compose.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 后台启动 Dockge 服务</span></span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure><p><em>(注：若新服务器连接 GitHub 较慢，可使用加速代理链接：<code>curl https://ghproxy.net/https://raw.githubusercontent.com/louislam/dockge/master/compose.yaml --output compose.yaml</code>)</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> Dockge </tag>
+            
+            <tag> 容器编排 </tag>
+            
+            <tag> 运维实战 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2026-09-19 全容器化迁移与架构重构决策档案</title>
       <link href="/posts/1c55bf21.html"/>
       <url>/posts/1c55bf21.html</url>
@@ -245,10 +276,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/universe.css"/>
-      <url>/css/universe.css</url>
+      <link href="/js/universe.js"/>
+      <url>/js/universe.js</url>
       
-        <content type="html"><![CDATA[/* Local star-field canvas, displayed behind the site in dark mode. */#universe {  position: fixed;  inset: 0;  display: block;  width: 100%;  height: 100%;  margin: 0;  padding: 0;  border: 0;  outline: 0;  pointer-events: none;  z-index: -1;}]]></content>
+        <content type="html"><![CDATA[(() => {  const canvas = document.getElementById('universe');  if (!canvas || canvas.dataset.initialized === 'true') return;  canvas.dataset.initialized = 'true';  const context = canvas.getContext('2d');  const stars = [];  const speed = 0.05;  let width = 0;  let height = 0;  let starCount = 0;  let initialBurst = true;  const random = (min, max) => Math.random() * (max - min) + min;  const chance = value => Math.floor(Math.random() * 1000) + 1 < 10 * value;  class Star {    reset() {      this.giant = chance(3);      this.comet = !this.giant && !initialBurst && chance(10);      this.x = random(0, width - 10);      this.y = random(0, height);      this.radius = random(1.1, 2.6);      this.dx = random(speed, 6 * speed) + (this.comet ? speed * random(50, 120) : 2 * speed);      this.dy = -random(speed, 6 * speed) - (this.comet ? speed * random(50, 120) : 0);      this.fadingOut = false;      this.fadingIn = true;      this.opacity = 0;      this.opacityThreshold = random(0.2, 1 - 0.4 * Number(this.comet));      this.opacityDelta = random(0.0005, 0.002) + (this.comet ? 0.001 : 0);    }    update() {      this.x += this.dx;      this.y += this.dy;      if (this.fadingIn) {        this.opacity += this.opacityDelta;        if (this.opacity > this.opacityThreshold) this.fadingIn = false;      }      if (this.x > width - width / 4 || this.y < 0) this.fadingOut = true;      if (this.fadingOut) this.opacity -= this.opacityDelta / 2;      if (this.opacity < 0 || this.x > width || this.y < 0) this.reset();    }    draw() {      context.beginPath();      if (this.giant) {        context.fillStyle = `rgba(180,184,240,${this.opacity})`;        context.arc(this.x, this.y, 2, 0, 2 * Math.PI);      } else if (this.comet) {        context.fillStyle = `rgba(226,225,224,${this.opacity})`;        context.arc(this.x, this.y, 1.5, 0, 2 * Math.PI);      } else {        context.fillStyle = `rgba(226,225,142,${this.opacity})`;        context.rect(this.x, this.y, this.radius, this.radius);      }      context.closePath();      context.fill();    }  }  const resize = () => {    width = window.innerWidth;    height = window.innerHeight;    starCount = Math.floor(0.216 * width);    canvas.width = width;    canvas.height = height;    while (stars.length < starCount) {      const star = new Star();      star.reset();      stars.push(star);    }    if (stars.length > starCount) stars.length = starCount;  };  const render = () => {    if (document.documentElement.dataset.theme === 'dark') {      context.clearRect(0, 0, width, height);      stars.forEach(star => {        star.update();        star.draw();      });    } else {      context.clearRect(0, 0, width, height);    }    window.requestAnimationFrame(render);  };  resize();  window.addEventListener('resize', resize, { passive: true });  window.setTimeout(() => {    initialBurst = false;  }, 50);  render();})();]]></content>
       
     </entry>
     
@@ -256,10 +287,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/universe.js"/>
-      <url>/js/universe.js</url>
+      <link href="/css/universe.css"/>
+      <url>/css/universe.css</url>
       
-        <content type="html"><![CDATA[(() => {  const canvas = document.getElementById('universe');  if (!canvas || canvas.dataset.initialized === 'true') return;  canvas.dataset.initialized = 'true';  const context = canvas.getContext('2d');  const stars = [];  const speed = 0.05;  let width = 0;  let height = 0;  let starCount = 0;  let initialBurst = true;  const random = (min, max) => Math.random() * (max - min) + min;  const chance = value => Math.floor(Math.random() * 1000) + 1 < 10 * value;  class Star {    reset() {      this.giant = chance(3);      this.comet = !this.giant && !initialBurst && chance(10);      this.x = random(0, width - 10);      this.y = random(0, height);      this.radius = random(1.1, 2.6);      this.dx = random(speed, 6 * speed) + (this.comet ? speed * random(50, 120) : 2 * speed);      this.dy = -random(speed, 6 * speed) - (this.comet ? speed * random(50, 120) : 0);      this.fadingOut = false;      this.fadingIn = true;      this.opacity = 0;      this.opacityThreshold = random(0.2, 1 - 0.4 * Number(this.comet));      this.opacityDelta = random(0.0005, 0.002) + (this.comet ? 0.001 : 0);    }    update() {      this.x += this.dx;      this.y += this.dy;      if (this.fadingIn) {        this.opacity += this.opacityDelta;        if (this.opacity > this.opacityThreshold) this.fadingIn = false;      }      if (this.x > width - width / 4 || this.y < 0) this.fadingOut = true;      if (this.fadingOut) this.opacity -= this.opacityDelta / 2;      if (this.opacity < 0 || this.x > width || this.y < 0) this.reset();    }    draw() {      context.beginPath();      if (this.giant) {        context.fillStyle = `rgba(180,184,240,${this.opacity})`;        context.arc(this.x, this.y, 2, 0, 2 * Math.PI);      } else if (this.comet) {        context.fillStyle = `rgba(226,225,224,${this.opacity})`;        context.arc(this.x, this.y, 1.5, 0, 2 * Math.PI);      } else {        context.fillStyle = `rgba(226,225,142,${this.opacity})`;        context.rect(this.x, this.y, this.radius, this.radius);      }      context.closePath();      context.fill();    }  }  const resize = () => {    width = window.innerWidth;    height = window.innerHeight;    starCount = Math.floor(0.216 * width);    canvas.width = width;    canvas.height = height;    while (stars.length < starCount) {      const star = new Star();      star.reset();      stars.push(star);    }    if (stars.length > starCount) stars.length = starCount;  };  const render = () => {    if (document.documentElement.dataset.theme === 'dark') {      context.clearRect(0, 0, width, height);      stars.forEach(star => {        star.update();        star.draw();      });    } else {      context.clearRect(0, 0, width, height);    }    window.requestAnimationFrame(render);  };  resize();  window.addEventListener('resize', resize, { passive: true });  window.setTimeout(() => {    initialBurst = false;  }, 50);  render();})();]]></content>
+        <content type="html"><![CDATA[/* Local star-field canvas, displayed behind the site in dark mode. */#universe {  position: fixed;  inset: 0;  display: block;  width: 100%;  height: 100%;  margin: 0;  padding: 0;  border: 0;  outline: 0;  pointer-events: none;  z-index: -1;}]]></content>
       
     </entry>
     
