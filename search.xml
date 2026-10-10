@@ -43,7 +43,7 @@
       <link href="/posts/a909a9e0.html"/>
       <url>/posts/a909a9e0.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p><strong>定位</strong>：GCP 新号送 300 刀赠金（90天），后台默认开着不少企业级扣费项。本篇整理流水线式关停操作，照着点点点直接关掉，杜绝漏钱。</p></blockquote><br/><h3 id="⭐为什么写这篇（杜绝暗戳戳扣费）"><a href="#⭐为什么写这篇（杜绝暗戳戳扣费）" class="headerlink" title="⭐为什么写这篇（杜绝暗戳戳扣费）"></a>⭐为什么写这篇（杜绝暗戳戳扣费）</h3><ul><li>很多人以为只开一台最低配 <code>e2-micro</code> 就绝对扣不超，结果后台每天几块几块地扣，两个月直接吃掉一两百刀赠金。</li><li><strong><font color="#ef7050">「根本原因：GCP 默认开启了企业级网络扫描与监控，就算服务器关着，后台也在按小时计费」</font></strong></li><li>本篇把排查出来的幽灵扣费项做成傻瓜式清单，打开控制台照着关就行。</li></ul><br/><h3 id="⭐【避坑-01】停用后台暗中扣费的“网络分析器”"><a href="#⭐【避坑-01】停用后台暗中扣费的“网络分析器”" class="headerlink" title="⭐【避坑 01】停用后台暗中扣费的“网络分析器”"></a>⭐【避坑 01】停用后台暗中扣费的“网络分析器”</h3><p> 🥝扣费背景</p><ul><li><strong>扣费项名称</strong>：<code>Network Analyzer</code>（网络分析器）</li><li><strong>扣费原因</strong>：每小时自动扫描一次你的 VPC 网络配置。个人搭建轻量服务完全用不上这东西，纯属白送钱。</li></ul><br/><p> 🥝关停流水线（点点点直接关）</p><ol><li><strong>直接点开后台链接</strong>：👉 <strong><a href="https://console.cloud.google.com/iam-admin/privacy?hl=zh-cn">GCP 隐私权与安全管理页面</a></strong></li><li><strong>确认项目</strong>：看一眼页面顶部，确保选中的是你当前扣费的 GCP 项目；</li><li><strong>切换标签</strong>：点击顶部的 <strong>【透明度和控制 (Transparency and Control)】</strong> 标签页；</li><li><strong>勾选服务</strong>：在服务列表里找到并勾选 <strong>【网络分析器 (Network Analyzer)】</strong>；</li><li><strong>点击停用</strong>：点击上方的 <strong>【停用 (Disable)】</strong> 按钮，在弹出的二次确认框里点击 <strong>【确定】</strong>。</li></ol><ul><li><strong><font color="#ef7050">「注意：点击停用后，谷歌后台需要 1 到 3 天完全生效，之后账单就不会再出现这笔扣费了」</font></strong></li></ul><br/><h3 id="⭐【避坑-02】删机器别忘清理“残留孤儿磁盘与静态IP”"><a href="#⭐【避坑-02】删机器别忘清理“残留孤儿磁盘与静态IP”" class="headerlink" title="⭐【避坑 02】删机器别忘清理“残留孤儿磁盘与静态IP”"></a>⭐【避坑 02】删机器别忘清理“残留孤儿磁盘与静态IP”</h3><p> 🥝扣费背景</p><ul><li>删了 VM 虚拟机，<strong>磁盘（Disk）默认不会自动删除</strong>，后台依然按天计费；</li><li>申请了静态公网 IP，如果<strong>处于闲置未绑定状态</strong>，谷歌会收取惩罚性闲置费。</li></ul><br/><p> 🥝清理流水线</p><ul><li><p><strong>清理残留磁盘</strong>：</p><ol><li>打开控制台左侧菜单 ➡️ <strong>【Compute Engine】</strong> ➡️ <strong>【存储】</strong> ➡️ <strong>【磁盘】</strong>；</li><li>查看“使用方”一栏，找到显示为空的磁盘；</li><li>勾选该磁盘，点击顶部 <strong>【删除】</strong>。</li></ol></li><li><p><strong>释放闲置 IP</strong>：</p><ol><li>打开左侧菜单 ➡️ <strong>【VPC 网络】</strong> ➡️ <strong>【IP 地址】</strong>；</li><li>查看“状态”一栏，找到显示“未预留 &#x2F; 未使用”的外部 IP；</li><li>勾选后点击顶部 <strong>【释放静态 IP】</strong>。</li></ol></li></ul><br/><h3 id="⭐后续避坑追加中…"><a href="#⭐后续避坑追加中…" class="headerlink" title="⭐后续避坑追加中…"></a>⭐后续避坑追加中…</h3><ul><li>后续如有其他后台幽灵 API、快照扣费或冷门计费坑，会直接在此补充流水线关停步骤。</li></ul>]]></content>
+        <content type="html"><![CDATA[<blockquote><p><strong>定位</strong>：GCP 新号送 300 刀赠金（90天），后台默认开着不少企业级扣费项。本篇整理流水线式关停操作，照着点点点直接关掉，杜绝漏钱。</p></blockquote><br/><h3 id="⭐为什么写这篇（杜绝暗戳戳扣费）"><a href="#⭐为什么写这篇（杜绝暗戳戳扣费）" class="headerlink" title="⭐为什么写这篇（杜绝暗戳戳扣费）"></a>⭐为什么写这篇（杜绝暗戳戳扣费）</h3><ul><li>很多人以为只开一台最低配 <code>e2-micro</code> 就绝对扣不超，结果后台每天几块几块地扣，两个月直接吃掉一两百刀赠金。</li><li><strong><font color="#ef7050">「根本原因：GCP 默认开启了企业级网络扫描与监控，就算服务器关着，后台也在按小时计费」</font></strong></li><li>本篇把排查出来的幽灵扣费项做成傻瓜式清单，打开控制台照着关就行。</li></ul><br/><h3 id="⭐【避坑-01】停用后台暗中扣费的“网络分析器”"><a href="#⭐【避坑-01】停用后台暗中扣费的“网络分析器”" class="headerlink" title="⭐【避坑 01】停用后台暗中扣费的“网络分析器”"></a>⭐【避坑 01】停用后台暗中扣费的“网络分析器”</h3><p> 🥝扣费背景</p><ul><li><strong>扣费项名称</strong>：<code>Network Analyzer</code>（网络分析器）</li><li><strong>扣费原因</strong>：每小时自动扫描一次你的 VPC 网络配置。个人搭建轻量服务完全用不上这东西，纯属白送钱。</li></ul><br/><p> 🥝关停流水线（点点点直接关）</p><ol><li><strong>直接点开后台链接</strong>：👉 <strong><a href="https://console.cloud.google.com/iam-admin/privacy?hl=zh-cn">GCP 隐私权与安全管理页面</a></strong></li><li><strong>确认项目</strong>：看一眼页面顶部，确保选中的是你当前扣费的 GCP 项目；</li><li><strong>切换标签</strong>：点击顶部的 <strong>【透明度和控制 (Transparency and Control)】</strong> 标签页；</li><li><strong>勾选服务</strong>：在服务列表里找到并勾选 <strong>【网络分析器 (Network Analyzer)】</strong>；</li><li><strong>点击停用</strong>：点击上方的 <strong>【停用 (Disable)】</strong> 按钮，在弹出的二次确认框里点击 <strong>【确定】</strong>。</li></ol><ul><li><strong><font color="#ef7050">「注意：点击停用后，谷歌后台需要 1 到 3 天完全生效，之后账单就不会再出现这笔扣费了」</font></strong></li></ul><br/><h3 id="⭐【避坑-02】更多省钱操作持续补充中…"><a href="#⭐【避坑-02】更多省钱操作持续补充中…" class="headerlink" title="⭐【避坑 02】更多省钱操作持续补充中…"></a>⭐【避坑 02】更多省钱操作持续补充中…</h3><ul><li>后续如有其他后台幽灵 API、冷门计费坑或实操细节，会直接在此补充流水线关停步骤。</li></ul>]]></content>
       
       
       <categories>
@@ -84,9 +84,9 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> 架构重构 </tag>
+            
+            <tag> Docker </tag>
             
             <tag> 多Agent </tag>
             
@@ -125,6 +125,17 @@
     
     
     <entry>
+      <title>颜色不一样的烟火</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<p style="font-size: 25px;">关于我</p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>英文名:</td><td>Ethan</td></tr><tr><td>职业:</td><td>???-？？</td></tr><tr><td>爱好:</td><td>跑步、音乐、游戏</td></tr></tbody></table>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>天造之材 皆有其用</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
@@ -147,11 +158,11 @@
     
     
     <entry>
-      <title>颜色不一样的烟火</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title></title>
+      <link href="/css/universe.css"/>
+      <url>/css/universe.css</url>
       
-        <content type="html"><![CDATA[<p style="font-size: 25px;">关于我</p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>英文名:</td><td>Ethan</td></tr><tr><td>职业:</td><td>???-？？</td></tr><tr><td>爱好:</td><td>跑步、音乐、游戏</td></tr></tbody></table>]]></content>
+        <content type="html"><![CDATA[/* Local star-field canvas, displayed behind the site in dark mode. */#universe {  position: fixed;  inset: 0;  display: block;  width: 100%;  height: 100%;  margin: 0;  padding: 0;  border: 0;  outline: 0;  pointer-events: none;  z-index: -1;}]]></content>
       
     </entry>
     
@@ -159,10 +170,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/universe.css"/>
-      <url>/css/universe.css</url>
+      <link href="/js/universe.js"/>
+      <url>/js/universe.js</url>
       
-        <content type="html"><![CDATA[/* Local star-field canvas, displayed behind the site in dark mode. */#universe {  position: fixed;  inset: 0;  display: block;  width: 100%;  height: 100%;  margin: 0;  padding: 0;  border: 0;  outline: 0;  pointer-events: none;  z-index: -1;}]]></content>
+        <content type="html"><![CDATA[(() => {  const canvas = document.getElementById('universe');  if (!canvas || canvas.dataset.initialized === 'true') return;  canvas.dataset.initialized = 'true';  const context = canvas.getContext('2d');  const stars = [];  const speed = 0.05;  let width = 0;  let height = 0;  let starCount = 0;  let initialBurst = true;  const random = (min, max) => Math.random() * (max - min) + min;  const chance = value => Math.floor(Math.random() * 1000) + 1 < 10 * value;  class Star {    reset() {      this.giant = chance(3);      this.comet = !this.giant && !initialBurst && chance(10);      this.x = random(0, width - 10);      this.y = random(0, height);      this.radius = random(1.1, 2.6);      this.dx = random(speed, 6 * speed) + (this.comet ? speed * random(50, 120) : 2 * speed);      this.dy = -random(speed, 6 * speed) - (this.comet ? speed * random(50, 120) : 0);      this.fadingOut = false;      this.fadingIn = true;      this.opacity = 0;      this.opacityThreshold = random(0.2, 1 - 0.4 * Number(this.comet));      this.opacityDelta = random(0.0005, 0.002) + (this.comet ? 0.001 : 0);    }    update() {      this.x += this.dx;      this.y += this.dy;      if (this.fadingIn) {        this.opacity += this.opacityDelta;        if (this.opacity > this.opacityThreshold) this.fadingIn = false;      }      if (this.x > width - width / 4 || this.y < 0) this.fadingOut = true;      if (this.fadingOut) this.opacity -= this.opacityDelta / 2;      if (this.opacity < 0 || this.x > width || this.y < 0) this.reset();    }    draw() {      context.beginPath();      if (this.giant) {        context.fillStyle = `rgba(180,184,240,${this.opacity})`;        context.arc(this.x, this.y, 2, 0, 2 * Math.PI);      } else if (this.comet) {        context.fillStyle = `rgba(226,225,224,${this.opacity})`;        context.arc(this.x, this.y, 1.5, 0, 2 * Math.PI);      } else {        context.fillStyle = `rgba(226,225,142,${this.opacity})`;        context.rect(this.x, this.y, this.radius, this.radius);      }      context.closePath();      context.fill();    }  }  const resize = () => {    width = window.innerWidth;    height = window.innerHeight;    starCount = Math.floor(0.216 * width);    canvas.width = width;    canvas.height = height;    while (stars.length < starCount) {      const star = new Star();      star.reset();      stars.push(star);    }    if (stars.length > starCount) stars.length = starCount;  };  const render = () => {    if (document.documentElement.dataset.theme === 'dark') {      context.clearRect(0, 0, width, height);      stars.forEach(star => {        star.update();        star.draw();      });    } else {      context.clearRect(0, 0, width, height);    }    window.requestAnimationFrame(render);  };  resize();  window.addEventListener('resize', resize, { passive: true });  window.setTimeout(() => {    initialBurst = false;  }, 50);  render();})();]]></content>
       
     </entry>
     
@@ -185,17 +196,6 @@
       <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/universe.js"/>
-      <url>/js/universe.js</url>
-      
-        <content type="html"><![CDATA[(() => {  const canvas = document.getElementById('universe');  if (!canvas || canvas.dataset.initialized === 'true') return;  canvas.dataset.initialized = 'true';  const context = canvas.getContext('2d');  const stars = [];  const speed = 0.05;  let width = 0;  let height = 0;  let starCount = 0;  let initialBurst = true;  const random = (min, max) => Math.random() * (max - min) + min;  const chance = value => Math.floor(Math.random() * 1000) + 1 < 10 * value;  class Star {    reset() {      this.giant = chance(3);      this.comet = !this.giant && !initialBurst && chance(10);      this.x = random(0, width - 10);      this.y = random(0, height);      this.radius = random(1.1, 2.6);      this.dx = random(speed, 6 * speed) + (this.comet ? speed * random(50, 120) : 2 * speed);      this.dy = -random(speed, 6 * speed) - (this.comet ? speed * random(50, 120) : 0);      this.fadingOut = false;      this.fadingIn = true;      this.opacity = 0;      this.opacityThreshold = random(0.2, 1 - 0.4 * Number(this.comet));      this.opacityDelta = random(0.0005, 0.002) + (this.comet ? 0.001 : 0);    }    update() {      this.x += this.dx;      this.y += this.dy;      if (this.fadingIn) {        this.opacity += this.opacityDelta;        if (this.opacity > this.opacityThreshold) this.fadingIn = false;      }      if (this.x > width - width / 4 || this.y < 0) this.fadingOut = true;      if (this.fadingOut) this.opacity -= this.opacityDelta / 2;      if (this.opacity < 0 || this.x > width || this.y < 0) this.reset();    }    draw() {      context.beginPath();      if (this.giant) {        context.fillStyle = `rgba(180,184,240,${this.opacity})`;        context.arc(this.x, this.y, 2, 0, 2 * Math.PI);      } else if (this.comet) {        context.fillStyle = `rgba(226,225,224,${this.opacity})`;        context.arc(this.x, this.y, 1.5, 0, 2 * Math.PI);      } else {        context.fillStyle = `rgba(226,225,142,${this.opacity})`;        context.rect(this.x, this.y, this.radius, this.radius);      }      context.closePath();      context.fill();    }  }  const resize = () => {    width = window.innerWidth;    height = window.innerHeight;    starCount = Math.floor(0.216 * width);    canvas.width = width;    canvas.height = height;    while (stars.length < starCount) {      const star = new Star();      star.reset();      stars.push(star);    }    if (stars.length > starCount) stars.length = starCount;  };  const render = () => {    if (document.documentElement.dataset.theme === 'dark') {      context.clearRect(0, 0, width, height);      stars.forEach(star => {        star.update();        star.draw();      });    } else {      context.clearRect(0, 0, width, height);    }    window.requestAnimationFrame(render);  };  resize();  window.addEventListener('resize', resize, { passive: true });  window.setTimeout(() => {    initialBurst = false;  }, 50);  render();})();]]></content>
       
     </entry>
     

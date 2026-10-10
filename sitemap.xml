@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://io.008300.xyz/categories/index.html</loc>
+    <loc>https://io.008300.xyz/about/index.html</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://io.008300.xyz/about/index.html</loc>
+    <loc>https://io.008300.xyz/categories/index.html</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -83,6 +83,27 @@
 
   
   <url>
+    <loc>https://io.008300.xyz/tags/%E6%9E%B6%E6%9E%84%E9%87%8D%E6%9E%84/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://io.008300.xyz/tags/Docker/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://io.008300.xyz/tags/%E5%A4%9AAgent/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://io.008300.xyz/tags/GCP/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -105,13 +126,6 @@
   
   <url>
     <loc>https://io.008300.xyz/tags/Java%E6%8A%80%E6%9C%AF%E7%82%B9/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://io.008300.xyz/tags/Docker/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -152,31 +166,17 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://io.008300.xyz/tags/%E6%9E%B6%E6%9E%84%E9%87%8D%E6%9E%84/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://io.008300.xyz/tags/%E5%A4%9AAgent/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
-    <loc>https://io.008300.xyz/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <loc>https://io.008300.xyz/categories/init/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://io.008300.xyz/categories/init/</loc>
+    <loc>https://io.008300.xyz/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
