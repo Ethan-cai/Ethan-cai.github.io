@@ -78,7 +78,7 @@
       <link href="/posts/a909a9e0.html"/>
       <url>/posts/a909a9e0.html</url>
       
-        <content type="html"><![CDATA[<blockquote><p><strong>定位</strong>：GCP 新号送 300 刀赠金（90天），后台默认开着不少企业级扣费项。本篇整理流水线式关停操作，照着点点点直接关掉，杜绝漏钱。</p></blockquote><br/><h3 id="⭐为什么写这篇（杜绝暗戳戳扣费）"><a href="#⭐为什么写这篇（杜绝暗戳戳扣费）" class="headerlink" title="⭐为什么写这篇（杜绝暗戳戳扣费）"></a>⭐为什么写这篇（杜绝暗戳戳扣费）</h3><ul><li>很多人以为只开一台最低配 <code>e2-micro</code> 就绝对扣不超，结果后台每天几块几块地扣，两个月直接吃掉一两百刀赠金。</li><li><strong><font color="#ef7050">「根本原因：GCP 默认开启了企业级网络扫描与监控，就算服务器关着，后台也在按小时计费」</font></strong></li><li>本篇把排查出来的幽灵扣费项做成傻瓜式清单，打开控制台照着关就行。</li></ul><br/><h3 id="⭐【避坑-01】停用后台暗中扣费的“网络分析器”"><a href="#⭐【避坑-01】停用后台暗中扣费的“网络分析器”" class="headerlink" title="⭐【避坑 01】停用后台暗中扣费的“网络分析器”"></a>⭐【避坑 01】停用后台暗中扣费的“网络分析器”</h3><p> 🥝扣费背景</p><ul><li><strong>扣费项名称</strong>：<code>Network Analyzer</code>（网络分析器）</li><li><strong>扣费原因</strong>：每小时自动扫描一次你的 VPC 网络配置。个人搭建轻量服务完全用不上这东西，纯属白送钱。</li></ul><br/><p> 🥝关停流水线（点点点直接关）</p><ol><li><strong>直接点开后台链接</strong>：👉 <strong><a href="https://console.cloud.google.com/iam-admin/privacy?hl=zh-cn">GCP 隐私权与安全管理页面</a></strong></li><li><strong>确认项目</strong>：看一眼页面顶部，确保选中的是你当前扣费的 GCP 项目；</li><li><strong>切换标签</strong>：点击顶部的 <strong>【透明度和控制 (Transparency and Control)】</strong> 标签页；</li><li><strong>勾选服务</strong>：在服务列表里找到并勾选 <strong>【网络分析器 (Network Analyzer)】</strong>；</li><li><strong>点击停用</strong>：点击上方的 <strong>【停用 (Disable)】</strong> 按钮，在弹出的二次确认框里点击 <strong>【确定】</strong>。</li></ol><ul><li><strong><font color="#ef7050">「注意：点击停用后，谷歌后台需要 1 到 3 天完全生效，之后账单就不会再出现这笔扣费了」</font></strong></li></ul><br/><h3 id="⭐【避坑-02】更多省钱操作持续补充中…"><a href="#⭐【避坑-02】更多省钱操作持续补充中…" class="headerlink" title="⭐【避坑 02】更多省钱操作持续补充中…"></a>⭐【避坑 02】更多省钱操作持续补充中…</h3><ul><li>后续如有其他后台幽灵 API、冷门计费坑或实操细节，会直接在此补充流水线关停步骤。</li></ul>]]></content>
+        <content type="html"><![CDATA[<blockquote><p><strong>定位</strong>：GCP 新号送 300 刀赠金（90天），后台默认开着不少企业级扣费项。本篇整理流水线式关停操作，照着点点点直接关掉，杜绝漏钱。</p></blockquote><br/><h3 id="⭐为什么写这篇（杜绝暗戳戳扣费）"><a href="#⭐为什么写这篇（杜绝暗戳戳扣费）" class="headerlink" title="⭐为什么写这篇（杜绝暗戳戳扣费）"></a>⭐为什么写这篇（杜绝暗戳戳扣费）</h3><ul><li>很多人以为只开一台最低配 <code>e2-micro</code> 就绝对扣不超，结果后台每天几块几块地扣，两个月直接吃掉一两百刀赠金。</li><li><strong><font color="#ef7050">「根本原因：GCP 默认开启了企业级网络扫描与监控，就算服务器关着，后台也在按小时计费」</font></strong></li><li>本篇把排查出来的幽灵扣费项做成傻瓜式清单，打开控制台照着关就行。</li></ul><br/><h3 id="⭐【避坑-01】停用后台暗中扣费的“网络分析器”"><a href="#⭐【避坑-01】停用后台暗中扣费的“网络分析器”" class="headerlink" title="⭐【避坑 01】停用后台暗中扣费的“网络分析器”"></a>⭐【避坑 01】停用后台暗中扣费的“网络分析器”</h3><p> 🥝扣费背景</p><ul><li><strong>扣费项名称</strong>：<code>Network Analyzer</code>（网络分析器）</li><li><strong>扣费原因</strong>：每小时自动扫描一次你的 VPC 网络配置。个人搭建轻量服务完全用不上这东西，纯属白送钱。</li></ul><br/><p> 🥝关停流水线（点点点直接关）</p><ol><li><strong>直接点开后台链接</strong>：👉 <strong><a href="https://console.cloud.google.com/iam-admin/privacy?hl=zh-cn">GCP 隐私权与安全管理页面</a></strong></li><li><strong>确认项目</strong>：看一眼页面顶部，确保选中的是你当前扣费的 GCP 项目</li><li><strong>切换标签</strong>：点击顶部的 <strong>【透明度和控制 (Transparency and Control)】</strong> 标签页<br><img src="/imagehost/article/GCP%E6%96%B0%E5%8F%B7%E5%85%A8%E9%9D%A2%E9%81%BF%E5%9D%91%E5%AE%9E%E6%93%8D%EF%BC%9A%E5%AE%88%E4%BD%8F300%E5%88%80%E8%AF%95%E7%94%A8%E9%87%91%E7%9A%84%E7%9C%81%E9%92%B1%E7%BB%86%E8%8A%82.assets/image-20261013124353132.png" alt="image-20261013124353132"></li><li><strong>勾选服务</strong>：在服务列表里找到并勾选 <strong>【网络分析器 (Network Analyzer)】</strong></li><li><strong>点击停用</strong>：点击上方的 <strong>【停用 (Disable)】</strong> 按钮，在弹出的二次确认框里点击 <strong>【确定】</strong><br><img src="/imagehost/article/GCP%E6%96%B0%E5%8F%B7%E5%85%A8%E9%9D%A2%E9%81%BF%E5%9D%91%E5%AE%9E%E6%93%8D%EF%BC%9A%E5%AE%88%E4%BD%8F300%E5%88%80%E8%AF%95%E7%94%A8%E9%87%91%E7%9A%84%E7%9C%81%E9%92%B1%E7%BB%86%E8%8A%82.assets/image-20261013133615700.png" alt="image-20261013133615700"></li></ol><ul><li><strong><font color="#ef7050">「注意：点击停用后，谷歌后台需要 1 到 3 天完全生效，之后账单就不会再出现这笔扣费了」</font></strong></li></ul><br/><h3 id="⭐【避坑-02】更多省钱操作持续补充中…"><a href="#⭐【避坑-02】更多省钱操作持续补充中…" class="headerlink" title="⭐【避坑 02】更多省钱操作持续补充中…"></a>⭐【避坑 02】更多省钱操作持续补充中…</h3><ul><li>后续如有其他后台幽灵 API、冷门计费坑或实操细节，会直接在此补充流水线关停步骤。</li></ul>]]></content>
       
       
       <categories>
@@ -160,11 +160,33 @@
     
     
     <entry>
+      <title>颜色不一样的烟火</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<p style="font-size: 25px;">关于我</p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>英文名:</td><td>Ethan</td></tr><tr><td>职业:</td><td>???-？？</td></tr><tr><td>爱好:</td><td>跑步、音乐、游戏</td></tr></tbody></table>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/css/custom.css"/>
       <url>/css/custom.css</url>
       
         <content type="html"><![CDATA[/* Local Butterfly overrides. Keep this file self-contained: no remote assets. *//* The old blog used ZhuZiAWan for navigation and display titles. The font is   stored with the site so rendering never depends on the original CDN. */@font-face {  font-family: 'ZhuZiAYuanJWD';  src: url('/fonts/ZhuZiAWan.woff2') format('woff2');  font-display: swap;  font-style: normal;  font-weight: 400 700;}#menus .site-page,#sidebar-menus .site-page,#site-title,#site-subtitle,.article-title,.article-sort-item-title,.post-title,h1.post-title {  font-family: 'ZhuZiAYuanJWD', 'Microsoft YaHei', 'PingFang SC', sans-serif;}#menus .site-page,#sidebar-menus .site-page,#site-title,.article-title,.post-title,h1.post-title {  font-weight: 600;}/* Let the site background remain visible through the main cards. */#recent-posts > .recent-post-item,#aside-content .card-widget,div#post,div#page,div#archive,div#tag,div#category {  background: rgba(255, 255, 255, 0.9);}/* Dark-mode card colours. */[data-theme='dark'] #recent-posts > .recent-post-item,[data-theme='dark'] #aside-content .card-widget,[data-theme='dark'] div#post,[data-theme='dark'] div#page,[data-theme='dark'] div#archive,[data-theme='dark'] div#tag,[data-theme='dark'] div#category {  background: #121212;}#rightside > div > button,#article-container figure.highlight {  border-radius: 10px;}/* Local cursor assets committed under source/img. */body {  cursor: url('/img/x1.cur'), auto;}a,[type='button']:not(:disabled),[type='reset']:not(:disabled),[type='submit']:not(:disabled),button:not(:disabled) {  cursor: url('/img/x2.cur'), pointer !important;}/* Scrollbar and text-selection colours. */::-webkit-scrollbar {  width: 10px;  height: 10px;}::-webkit-scrollbar-thumb {  background-color: #3b70fc;  border-radius: 2em;}::-webkit-scrollbar-corner {  background-color: transparent;}::selection {  color: #fff;  background-color: #3b70fc;}/* Author card gradient retained from the old blog without external assets. */#aside-content > .card-widget.card-info {  position: relative;  background: linear-gradient(-45deg, #e8d8b9, #eccec5, #a3e9eb, #bdbdf0, #eec1ea);  background-size: 400% 400%;  box-shadow: 0 0 5px rgb(66, 68, 68);  animation: author-card-gradient 10s ease infinite;}@keyframes author-card-gradient {  0% {    background-position: 0% 50%;  }  50% {    background-position: 100% 50%;  }  100% {    background-position: 0% 50%;  }}[data-theme='dark'] #aside-content > .card-widget.card-info {  background: rgba(25, 25, 25, 0.93);}#aside-content > .card-widget.card-info > #card-info-btn {  background-color: #3eb8be;  border-radius: 8px;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>天造之材 皆有其用</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -193,17 +215,6 @@
     
     
     <entry>
-      <title>颜色不一样的烟火</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<p style="font-size: 25px;">关于我</p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>英文名:</td><td>Ethan</td></tr><tr><td>职业:</td><td>???-？？</td></tr><tr><td>爱好:</td><td>跑步、音乐、游戏</td></tr></tbody></table>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>今天且有暂别 他朝也定能聚首</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
@@ -218,17 +229,6 @@
       <title>可否不分肤色的界限</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>天造之材 皆有其用</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
